@@ -2,7 +2,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPhoneBookValue } from 'redux/phoneBook/phoneBookSlice';
+import { getPhoneBookValue } from 'redux/contacts/contactsSlice';
 import { FormStyle } from './ContactForm.styled';
 import { ButtonStyle, InputStyle, LabelStyle } from 'components/App.styled';
 import { postContactThunk } from 'components/services/fetchContacts';

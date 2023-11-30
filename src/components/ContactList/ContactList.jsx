@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilter } from 'redux/phoneBook/filterSlice';
-import { getPhoneBookValue } from 'redux/phoneBook/phoneBookSlice';
+import { getFilter } from 'redux/filterSlice';
+import { getPhoneBookValue } from 'redux/contacts/contactsSlice';
 import { ContactItemStyle, ContactListStyle } from './ContactsList.styled';
 import { ButtonStyle } from 'components/App.styled';
 import { useEffect } from 'react';

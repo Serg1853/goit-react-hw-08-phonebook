@@ -7,7 +7,7 @@ import {
   getError,
   getIsLoading,
   getPhoneBookValue,
-} from 'redux/phoneBook/phoneBookSlice';
+} from 'redux/contacts/contactsSlice';
 import { Loader } from './Loader/Loader';
 import { Error } from './Error/Error';
 
