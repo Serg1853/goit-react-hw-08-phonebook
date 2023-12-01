@@ -5,19 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPhoneBookValue } from 'redux/contacts/contactsSlice';
 import { FormStyle } from './ContactForm.styled';
 import { ButtonStyle, InputStyle, LabelStyle } from 'components/App.styled';
-import { postContactThunk } from 'components/services/fetchContacts';
+import { addContacts } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const phoneBook = useSelector(getPhoneBookValue);
+  const contacts = useSelector(getPhoneBookValue);
 
   const onSubmitAddContact = event => {
     event.preventDefault();
-    const newObj = { name, phone };
+    const newObj = { name, number };
 
-    if (isNameNew(phoneBook, newObj) !== undefined) {
+    if (isNameNew(contacts, newObj) !== undefined) {
       Notify.warning(`${newObj.name} is already in contacts`, {
         width: '400px',
         position: 'center-center',
@@ -27,13 +27,13 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(postContactThunk(newObj));
+    dispatch(addContacts(newObj));
 
     reset();
   };
 
-  const isNameNew = (phoneBook, newObj) => {
-    return phoneBook.find(
+  const isNameNew = (contacts, newObj) => {
+    return contacts.find(
       ({ name }) => name.toLowerCase() === newObj.name.toLowerCase()
     );
   };
@@ -44,7 +44,7 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
+      case 'number':
         setNumber(value);
         break;
 
@@ -75,8 +75,8 @@ export const ContactForm = () => {
         Phone number
         <InputStyle
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           required
           onChange={onChangeInput}

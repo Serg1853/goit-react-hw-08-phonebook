@@ -1,9 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import {
-  delContactThunk,
-  getContactsThunk,
-  postContactThunk,
-} from 'components/services/fetchContacts';
+import { addContacts, deleteContacts, fetchContacts } from './operations';
 
 const contactInitialState = {
   contacts: [],
@@ -21,26 +17,26 @@ const onRejected = (state, { payload }) => {
   state.error = payload;
 };
 
-const arrOfActs = [getContactsThunk, postContactThunk, delContactThunk];
+const arrOfActs = [addContacts, deleteContacts, fetchContacts];
 
 const addStatusToActs = status => arrOfActs.map(el => el[status]);
 
-export const phoneBookSlice = createSlice({
-  name: 'phoneBook',
+export const contactsSlice = createSlice({
+  name: 'contacts',
   initialState: contactInitialState,
   extraReducers: builder => {
     builder
-      .addCase(getContactsThunk.fulfilled, (state, { payload }) => {
+      .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.contacts = payload;
         state.error = null;
       })
-      .addCase(postContactThunk.fulfilled, (state, { payload }) => {
+      .addCase(addContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.contacts = [...state.contacts, payload];
         state.error = null;
       })
-      .addCase(delContactThunk.fulfilled, (state, { payload }) => {
+      .addCase(deleteContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.contacts = state.contacts.filter(
           contact => contact.id !== payload.id
@@ -52,6 +48,6 @@ export const phoneBookSlice = createSlice({
   },
 });
 
-export const getPhoneBookValue = state => state.phoneBook.contacts;
-export const getIsLoading = state => state.phoneBook.isLoading;
-export const getError = state => state.phoneBook.error;
+// export const getPhoneBookValue = state => state.phoneBook.contacts;
+// export const getIsLoading = state => state.phoneBook.isLoading;
+// export const getError = state => state.phoneBook.error;
