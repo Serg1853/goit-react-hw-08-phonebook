@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
 export const Text = styled.p`
   font-weight: 700;
-  color: #f08080;
+  color: black;
   font-size: 20px;
 `;
 
@@ -16,16 +16,19 @@ export const Button = styled.button`
   padding: 4px 6px;
   font: inherit;
   cursor: pointer;
-  border-radius: 4px 8px;
-  border: 3px solid #f08080;
-  color: #f08080;
+  border-radius: 5px;
+  border: 3px solid black;
+  color: black;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px 10px;
+  background-color: #59b2ff;
+  box-shadow: 5px 5px 5px grey;
 
   &:hover {
-    background-color: #b9bcd3;
+    background-color: #31a2d3;
+    color: white;
   }
 `;

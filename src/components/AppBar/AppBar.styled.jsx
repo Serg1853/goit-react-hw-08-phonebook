@@ -5,7 +5,9 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto 20px auto;
-  border: 3px solid #f08080;
-  background-color: rgba(0, 0, 0, 0.6);
+  border: 3px solid #59b2ff;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px grey;
+  /* background-color: #59b2ff; */
   width: 640px;
 `;

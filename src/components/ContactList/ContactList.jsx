@@ -5,22 +5,22 @@ import { ContactItemStyle, ContactListStyle } from './ContactsList.styled';
 import { ButtonStyle } from 'components/App.styled';
 
 import { deleteContacts } from 'redux/contacts/operations';
-import { selectvisibleContacts } from 'redux/contacts/selectors';
+import { selectVisibleContacts } from 'redux/contacts/selectors';
 
 export const ContactsList = () => {
-  const contacts = useSelector(selectvisibleContacts);
+  const contacts = useSelector(selectVisibleContacts);
   const dispatch = useDispatch();
 
   return (
     <ContactListStyle>
-      {contacts.map(({ name, number, id }) => (
-        <ContactItemStyle key={id}>
+      {contacts.map(contact => (
+        <ContactItemStyle key={contact.id}>
           <p>
-            {name}: {number}
+            {contact.name}: {contact.number}
           </p>
           <ButtonStyle
             type="botton"
-            onClick={() => dispatch(deleteContacts(id))}
+            onClick={() => dispatch(deleteContacts(contact.id))}
           >
             Delete
           </ButtonStyle>
