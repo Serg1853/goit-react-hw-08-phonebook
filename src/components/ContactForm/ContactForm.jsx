@@ -2,16 +2,16 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPhoneBookValue } from 'redux/contacts/contactsSlice';
 import { FormStyle } from './ContactForm.styled';
 import { ButtonStyle, InputStyle, LabelStyle } from 'components/App.styled';
 import { addContacts } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(getPhoneBookValue);
+  const contacts = useSelector(selectContacts);
 
   const onSubmitAddContact = event => {
     event.preventDefault();
