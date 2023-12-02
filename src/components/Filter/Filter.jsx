@@ -1,10 +1,11 @@
 import { LabelStyle, InputStyle } from 'components/App.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterSet, getFilter } from 'redux/filter/filterSlice';
+import { filterSet } from 'redux/filter/filterSlice';
+import { selectFilter } from 'redux/filter/selectors';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filterPhoneBook = useSelector(getFilter);
+  const filterPhoneBook = useSelector(selectFilter);
 
   const onChangeFilter = event => {
     const { value } = event.currentTarget;

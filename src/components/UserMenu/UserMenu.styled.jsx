@@ -13,11 +13,11 @@ export const Text = styled.p`
 `;
 
 export const Button = styled.button`
-  padding: 4px 6px;
+  padding: 6px 6px;
   font: inherit;
   cursor: pointer;
   border-radius: 5px;
-  border: 3px solid black;
+  border: 2px solid black;
   color: black;
   font-size: 20px;
   display: flex;

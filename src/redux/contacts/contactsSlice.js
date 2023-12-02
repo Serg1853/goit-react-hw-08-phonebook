@@ -28,19 +28,17 @@ export const contactsSlice = createSlice({
     builder
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.contacts = payload;
+        state.items = payload;
         state.error = null;
       })
       .addCase(addContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.contacts = [...state.contacts, payload];
+        state.items = [...state.items, payload];
         state.error = null;
       })
       .addCase(deleteContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.contacts = state.contacts.filter(
-          contact => contact.id !== payload.id
-        );
+        state.items = state.items.filter(contact => contact.id !== payload.id);
         state.error = null;
       })
       .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)

@@ -10,9 +10,9 @@ export const UserMenu = () => {
   return (
     <Wrapper>
       <Text>Welcome to Phonebook {user.name}</Text>{' '}
-      <Button type="button" onClick={() => dispatch(logOut)}>
+      <Button type="button" onClick={() => dispatch(logOut())}>
         Logout
-      </Button>{' '}
+      </Button>
     </Wrapper>
   );
 };

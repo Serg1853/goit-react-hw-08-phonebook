@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 500px;
   margin: 0px auto;
+  align-items: center;
 `;
 
 export const LabelStyle = styled.label`

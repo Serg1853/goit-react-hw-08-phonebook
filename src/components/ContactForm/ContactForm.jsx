@@ -3,9 +3,15 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormStyle } from './ContactForm.styled';
-import { ButtonStyle, InputStyle, LabelStyle } from 'components/App.styled';
+import {
+  ButtonStyle,
+  Container,
+  InputStyle,
+  LabelStyle,
+} from 'components/App.styled';
 import { addContacts } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
+import { Filter } from 'components/Filter/Filter';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -59,31 +65,34 @@ export const ContactForm = () => {
   };
 
   return (
-    <FormStyle onSubmit={onSubmitAddContact}>
-      <LabelStyle>
-        Name
-        <InputStyle
-          type="text"
-          name="name"
-          value={name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          required
-          onChange={onChangeInput}
-        />
-      </LabelStyle>
-      <LabelStyle>
-        Phone number
-        <InputStyle
-          type="tel"
-          name="number"
-          value={number}
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          required
-          onChange={onChangeInput}
-        />
-      </LabelStyle>
-      <ButtonStyle type="submit">Add contact</ButtonStyle>
-    </FormStyle>
+    <Container>
+      <FormStyle onSubmit={onSubmitAddContact}>
+        <LabelStyle>
+          Name
+          <InputStyle
+            type="text"
+            name="name"
+            value={name}
+            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            required
+            onChange={onChangeInput}
+          />
+        </LabelStyle>
+        <LabelStyle>
+          Phone number
+          <InputStyle
+            type="tel"
+            name="number"
+            value={number}
+            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            required
+            onChange={onChangeInput}
+          />
+        </LabelStyle>
+        <ButtonStyle type="submit">Add contact</ButtonStyle>
+      </FormStyle>{' '}
+      <Filter />
+    </Container>
   );
 };
 
