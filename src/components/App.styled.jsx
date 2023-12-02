@@ -35,3 +35,7 @@ export const ButtonStyle = styled.button`
     color: white;
   }
 `;
+export const avatarStyle = {
+  m: 1,
+  bgcolor: 'secondary.main',
+};

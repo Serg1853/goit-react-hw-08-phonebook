@@ -3,13 +3,18 @@ import { Header } from './AppBar.styled';
 import { Navigation } from 'components/Navigation/Navigation';
 import { useAuth } from 'hooks/useAuth';
 import { UserMenu } from 'components/UserMenu/UserMenu';
+import { AppBar, Toolbar } from '@mui/material';
 
-export const AppBar = () => {
+export const MyAppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <Header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}{' '}
-    </Header>
+    <AppBar>
+      <Toolbar
+        sx={{ display: 'flex', fontSize: 18, justifyContent: 'space-between' }}
+      >
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </Toolbar>
+    </AppBar>
   );
 };
