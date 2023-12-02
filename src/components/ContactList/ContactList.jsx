@@ -15,9 +15,7 @@ export const ContactsList = () => {
     <ContactListStyle>
       {contacts.map(contact => (
         <ContactItemStyle key={contact.id}>
-          <p>
-            {contact.name}: {contact.number}
-          </p>
+          {contact.name}: {contact.number}
           <ButtonStyle
             type="botton"
             onClick={() => dispatch(deleteContacts(contact.id))}
