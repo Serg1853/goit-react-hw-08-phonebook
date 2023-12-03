@@ -16,3 +16,10 @@ export const ContactItemStyle = styled.li`
   padding: 10px;
   border: 1px solid#31b5d3;
 `;
+export const boxListStyle = {
+  width: '100%',
+  mt: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};

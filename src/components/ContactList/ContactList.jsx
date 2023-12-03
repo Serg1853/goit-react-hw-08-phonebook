@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { getFilter } from 'redux/filter/filterSlice';
 
-import { ContactItemStyle, ContactListStyle } from './ContactsList.styled';
-import { Container } from 'components/App.styled';
+import { ContactItemStyle, boxListStyle } from './ContactsList.styled';
+// import { Container } from 'components/App.styled';
 
 import { deleteContacts } from 'redux/contacts/operations';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
-import { Button } from '@mui/material';
+import { Box, Button, List } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ContactsList = () => {
@@ -14,8 +14,8 @@ export const ContactsList = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container>
-      <ContactListStyle>
+    <Box sx={boxListStyle}>
+      <List sx={{ width: 396 }}>
         {contacts.map(contact => (
           <ContactItemStyle key={contact.id}>
             {contact.name}: {contact.number}
@@ -34,8 +34,8 @@ export const ContactsList = () => {
             </ButtonStyle> */}
           </ContactItemStyle>
         ))}
-      </ContactListStyle>
-    </Container>
+      </List>
+    </Box>
   );
 };
 

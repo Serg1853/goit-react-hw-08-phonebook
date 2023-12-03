@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 500px;
+  width: 600px;
   margin: 0px auto;
   align-items: center;
 `;
@@ -38,4 +38,15 @@ export const ButtonStyle = styled.button`
 export const avatarStyle = {
   m: 1,
   bgcolor: 'secondary.main',
+};
+export const toolbarStyle = {
+  display: 'flex',
+  columnGap: 3,
+};
+export const formStyle = {
+  display: 'flex',
+  backgroundColor: 'rgba(208, 224, 241, 0.822)',
+  mt: 2,
+  mb: 2,
+  gap: 3,
 };
