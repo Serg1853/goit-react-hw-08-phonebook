@@ -1,5 +1,5 @@
 import { Avatar, Box, TextField } from '@mui/material';
-import { LabelStyle, InputStyle, avatarStyle } from 'components/App.styled';
+import { avatarStyle } from 'components/App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterSet } from 'redux/filter/filterSlice';
 import { selectFilter } from 'redux/filter/selectors';
