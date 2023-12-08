@@ -54,12 +54,12 @@ export const RegisterForm = () => {
           // Validation
           inputProps={{
             inputMode: 'text',
-            pattern: '^[a-zA-Zа-яА-Я]+(([a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$',
+            pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$',
           }}
           margin="normal"
           fullWidth
           label="Email"
-          type="text"
+          type="email"
           name="email"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
@@ -69,12 +69,12 @@ export const RegisterForm = () => {
           // Validation
           inputProps={{
             inputMode: 'text',
-            pattern: '^[a-zA-Zа-яА-Я]+(([a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$',
+            pattern: '^[a-zA-Z0-9!@#$%^&*()-_=+`~[]{}|:<>/?]+$',
           }}
           margin="normal"
           fullWidth
           label="Password"
-          type="text"
+          type="password"
           name="password"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
