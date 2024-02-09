@@ -8,6 +8,5 @@ export const Header = styled.header`
   border: 3px solid #59b2ff;
   border-radius: 5px;
   box-shadow: 5px 5px 5px grey;
-  /* background-color: #59b2ff; */
   width: 640px;
 `;
